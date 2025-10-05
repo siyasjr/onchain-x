@@ -11,6 +11,16 @@ pub struct Tweet
     content: String, 
 }
 
+
+impl Tweet {
+    const LEN: usize = 
+      DISCRIMINATOR_LENGTH 
+    + PUBLIC_KEY_LENGTH
+    + TIME_STAMP_LENGTH
+    + STRING_LENGTH_PREFIX + MAX_TOPIC_LENGTH
+    +STRING_LENGTH_PREFIX + MAX_CONTENT_LENGTH;
+}
+
 const DISCRIMINATOR_LENGTH: usize = 4;
 const PUBLIC_KEY_LENGTH: usize = 32;
 const  TIME_STAMP_LENGTH: usize = 8;
