@@ -4,7 +4,10 @@ declare_id!("BCHAprg6MuE55yWqi75jYXUnWEvCiJrrwWXp1PdGGdqX");
 
 #[derive(Accounts)]
 pub struct  SendTweet<'info> {
+
+  #[account(init, payer = author, space = Tweet::LEN)]
   pub tweet: Account<'info, Tweet>,
+  #[account(mut)]
   pub author: Signer<'info>,
   pub system_program: AccountInfo<'info>,
 }
