@@ -1,9 +1,16 @@
-use anchor_lang::prelude::*;
+use anchor_lang::{accounts::program, prelude::*};
 declare_id!("BCHAprg6MuE55yWqi75jYXUnWEvCiJrrwWXp1PdGGdqX");
 
 
-#[account]
+#[derive(Accounts)]
+pub struct  SendTweet<'info> {
+  pub tweet: Account<'info, Tweet>,
+  pub author: Signer<'info>,
+  pub system_program: AccountInfo<'info>,
+}
 
+
+#[account]
 pub struct Tweet
  {
     author: Pubkey,
