@@ -2,6 +2,11 @@ use anchor_lang::{accounts::program, prelude::*, solana_program::example_mocks::
 declare_id!("BCHAprg6MuE55yWqi75jYXUnWEvCiJrrwWXp1PdGGdqX");
 
 
+#[program]
+pub mod onchain_x {
+  
+}
+
 #[derive(Accounts)]
 pub struct  SendTweet<'info> {
 
