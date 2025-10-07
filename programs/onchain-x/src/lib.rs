@@ -1,4 +1,4 @@
-use anchor_lang::{accounts::program, prelude::*};
+use anchor_lang::{accounts::program, prelude::*, solana_program::example_mocks::solana_sdk::system_program};
 declare_id!("BCHAprg6MuE55yWqi75jYXUnWEvCiJrrwWXp1PdGGdqX");
 
 
@@ -9,6 +9,8 @@ pub struct  SendTweet<'info> {
   pub tweet: Account<'info, Tweet>,
   #[account(mut)]
   pub author: Signer<'info>,
+
+  #[account(address = system_program::ID)]
   pub system_program: AccountInfo<'info>,
 }
 
