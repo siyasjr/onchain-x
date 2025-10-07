@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
-use  anchor_lang::accounts;
+declare_id!("BCHAprg6MuE55yWqi75jYXUnWEvCiJrrwWXp1PdGGdqX");
+
 
 #[account]
 
@@ -13,7 +14,7 @@ pub struct Tweet
 
 
 impl Tweet {
-    const LEN: usize = 
+    pub const LEN: usize = 
       DISCRIMINATOR_LENGTH 
     + PUBLIC_KEY_LENGTH
     + TIME_STAMP_LENGTH
@@ -21,7 +22,7 @@ impl Tweet {
     +STRING_LENGTH_PREFIX + MAX_CONTENT_LENGTH;
 }
 
-const DISCRIMINATOR_LENGTH: usize = 4;
+const DISCRIMINATOR_LENGTH: usize = 8;
 const PUBLIC_KEY_LENGTH: usize = 32;
 const  TIME_STAMP_LENGTH: usize = 8;
 const STRING_LENGTH_PREFIX: usize = 4;
