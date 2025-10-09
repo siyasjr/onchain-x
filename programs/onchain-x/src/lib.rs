@@ -10,8 +10,12 @@ pub mod onchain_x {
     let tweet = &mut ctx.accounts.tweet;
     let author = &ctx.accounts.author;
     let clock = Clock::get()?;
-    
 
+
+    tweet.author = author.key();
+    tweet.topic = topic;
+    tweet.content = content; 
+    tweet.timestamp = clock.unix_timestamp;
 
     Ok(())
 
