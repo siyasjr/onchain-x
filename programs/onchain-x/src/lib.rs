@@ -16,7 +16,7 @@ pub mod onchain_x {
     }
 
     if content.chars().count() >= 280 {
-      
+
     }
 
 
@@ -69,6 +69,18 @@ const  TIME_STAMP_LENGTH: usize = 8;
 const STRING_LENGTH_PREFIX: usize = 4;
 const MAX_TOPIC_LENGTH: usize = 200; //50 * 4 
 const MAX_CONTENT_LENGTH: usize = 1120; //280 * 4
+
+
+#[error_code]
+
+pub enum ErrorCode {
+  #[msg("The provided topic should be 50 character long maximum")]
+  TopicTooLong,
+
+  #[msg("The provided content should be 280 characters long maximum")]
+  ContentTooLong,
+    
+}
 
 
 
