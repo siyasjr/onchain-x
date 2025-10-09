@@ -7,6 +7,9 @@ pub mod onchain_x {
 
   use super::*; 
   pub fn send_tweet(ctx: Context<SendTweet>, topic: String, content: String) -> Result<()> {
+    let tweet = &mut ctx.accounts.tweet;
+    let author = &ctx.accounts.author;
+    
 
     Ok(())
 
