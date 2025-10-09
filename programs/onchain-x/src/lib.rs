@@ -9,7 +9,9 @@ pub mod onchain_x {
   pub fn send_tweet(ctx: Context<SendTweet>, topic: String, content: String) -> Result<()> {
     let tweet = &mut ctx.accounts.tweet;
     let author = &ctx.accounts.author;
+    let clock = Clock::get()?;
     
+
 
     Ok(())
 
