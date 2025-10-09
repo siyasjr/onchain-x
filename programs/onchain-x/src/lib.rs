@@ -5,18 +5,23 @@ declare_id!("BCHAprg6MuE55yWqi75jYXUnWEvCiJrrwWXp1PdGGdqX");
 #[program]
 pub mod onchain_x {
 
-  use super::*; 
+  use crate::ErrorCode;
+
+use super::*; 
   pub fn send_tweet(ctx: Context<SendTweet>, topic: String, content: String) -> Result<()> {
     let tweet = &mut ctx.accounts.tweet;
     let author = &ctx.accounts.author;
     let clock = Clock::get()?;
 
     if topic.chars().count() >=50 {
+      
+      return Err(ErrorCode::TopicTooLong.into());
 
     }
 
     if content.chars().count() >= 280 {
-
+      
+      return Err(ErrorCode::ContentTooLong.into());
     }
 
 
@@ -72,7 +77,6 @@ const MAX_CONTENT_LENGTH: usize = 1120; //280 * 4
 
 
 #[error_code]
-
 pub enum ErrorCode {
   #[msg("The provided topic should be 50 character long maximum")]
   TopicTooLong,
