@@ -11,6 +11,14 @@ pub mod onchain_x {
     let author = &ctx.accounts.author;
     let clock = Clock::get()?;
 
+    if topic.chars().count() >=50 {
+
+    }
+
+    if content.chars().count() >= 280 {
+      
+    }
+
 
     tweet.author = author.key();
     tweet.topic = topic;
