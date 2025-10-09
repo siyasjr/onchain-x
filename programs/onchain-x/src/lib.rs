@@ -8,6 +8,8 @@ pub mod onchain_x {
   use super::*; 
   pub fn send_tweet(ctx: Context<SendTweet>, topic: String, content: String) -> Result<()> {
 
+    Ok(())
+
   }
   
 }
