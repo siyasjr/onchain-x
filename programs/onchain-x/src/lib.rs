@@ -56,7 +56,7 @@ pub struct Tweet
  {
     pub author: Pubkey,
     pub timestamp: i64,
-    topic: String,
+    pub topic: String,
     content: String, 
 }
 
