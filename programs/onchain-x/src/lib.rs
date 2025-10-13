@@ -1,4 +1,6 @@
-use anchor_lang::{accounts::program, prelude::*, solana_program::example_mocks::solana_sdk::system_program};
+use anchor_lang::prelude::*;
+use anchor_lang::system_program;
+
 declare_id!("BCHAprg6MuE55yWqi75jYXUnWEvCiJrrwWXp1PdGGdqX");
 
 
