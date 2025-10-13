@@ -54,8 +54,8 @@ pub struct  SendTweet<'info> {
 #[account]
 pub struct Tweet
  {
-    author: Pubkey,
-    timestamp: i64,
+    pub author: Pubkey,
+    pub timestamp: i64,
     topic: String,
     content: String, 
 }
