@@ -9,9 +9,7 @@ import { OnchainX } from "../target/types/onchain_x";
   const program = anchor.workspace.onchainX ;
 
 it('can send a new tweet', async () => {
-    // Before sending the transaction to the blockchain.
-
-    await program.rpc.sendTweet('TOPIC HERE', 'CONTENT HERE', {
+    await program.rpc.sendTweet('Optimism', 'All is well?', {
         accounts: {
             // Accounts here...
         },
@@ -19,6 +17,4 @@ it('can send a new tweet', async () => {
           	// Key pairs of signers here...
         ],
     });
-
-    // After sending the transaction to the blockchain.
 });
