@@ -17,7 +17,7 @@ describe("solana-twitter", () => {
       .accounts({
         tweet: tweet.publicKey,
         author: provider.wallet.publicKey,
-        systemProgram: anchor.web3.SystemProgram.programId,
+        
       })
       .signers([tweet])
       .rpc();
