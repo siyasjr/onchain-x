@@ -2,6 +2,7 @@ import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { OnchainX } from '../target/types/onchain_x';
 import * as assert from "assert";
+import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 
 describe("solana-twitter", () => {
   // Configure the client to use the local cluster.
@@ -126,7 +127,15 @@ it('cannot provide a topic with more than 50 characters', async () => {
         assert.equal(tweetAccounts.length, 3);
     });
 
-    
+    const authorPublicKey = program.provider.wallet.publicKey
+const tweetAccounts = await program.account.tweet.all([
+    {
+        memcmp: {
+            offset: 8, // Discriminator.
+            bytes: authorPublicKey.toBase58(),
+        }
+    }
+]);
 
 
 });
