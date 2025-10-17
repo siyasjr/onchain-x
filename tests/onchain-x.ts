@@ -122,20 +122,22 @@ it('cannot provide a topic with more than 50 characters', async () => {
     });
 
 
-    it('can filter tweets by author', async () => {
-    const authorPublicKey = program.provider.wallet.publicKey
+    it('can filter tweets by topics', async () => {
     const tweetAccounts = await program.account.tweet.all([
         {
             memcmp: {
-                offset: 8, // Discriminator.
-                bytes: authorPublicKey.toBase58(),
+                offset: 8 + // Discriminator.
+                    32 + // Author public key.
+                    8 + // Timestamp.
+                    4, // Topic string prefix.
+                bytes: bs58.encode(Buffer.from('veganism')),
             }
         }
     ]);
 
     assert.equal(tweetAccounts.length, 2);
     assert.ok(tweetAccounts.every(tweetAccount => {
-        return tweetAccount.account.author.toBase58() === authorPublicKey.toBase58()
+        return tweetAccount.account.topic === 'veganism'
     }))
 });
 });
